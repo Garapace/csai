@@ -8,7 +8,9 @@ def common_elements_count(lists):
 
     return len(common_list)
 
-def test(): 
+
+# Функция для тестирования
+def run_tests():
     test_cases = [
         {
             'input': [[1, 2, 3], [2, 3, 4], [2, 5, 6]],
@@ -47,4 +49,12 @@ def test():
         else:
             print(f"Тест {i + 1} провален: ожидаемый результат {test_case['expected']}, полученный результат {result}")
 
-test()
+
+def main():
+    run_tests()
+
+
+if __name__ == "__main__":
+    # Запуск тестов при запуске файла
+    main()
+    
