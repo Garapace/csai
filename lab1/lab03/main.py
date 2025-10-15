@@ -2,24 +2,26 @@
 n чисел и сортирует их при помощи алгоритма сортировки пузырьком по возрастанию и выводит их на экран. """
 
 
-def bubble_sort(array):
-    for i in range(len(array)):
-        for j in range(len(array)):
-            if array[i] < array[j]:
-                temp = array[i]
-                array[i] = array[j]
-                array[j] = temp
+def bubble_sort(array, direction):
+    n = len(array)
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if direction == 0:  # по возрастанию
+                if array[j] > array[j + 1]:
+                    array[j], array[j + 1] = array[j + 1], array[j]
+            else:               # по убыванию
+                if array[j] < array[j + 1]:
+                    array[j], array[j + 1] = array[j + 1], array[j]
     return array
 
 
 def main():
     n = int(input("сколько чисел в последовательности?\n"))
-    array = [_ for _ in range(n)]
-    for i in range(n):
-        elem = int(input(f"{i+1}-ый эл-т последовательности - "))
-        array[i] = elem
+    array = [int(input(f"{i+1}-ый элемент: ")) for i in range(n)]
+    
+    direction = int(input("Введите направление сортировки:\n0 - по возрастанию | 1 - по убыванию\n"))
     print(f"начальная последовательность\t\t-\t{' '.join(str(item) for item in array)}")
-    print(f"отсортированная последовательность\t-\t{' '.join(str(item) for item in bubble_sort(array))}")
+    print(f"отсортированная последовательность\t-\t{' '.join(str(item) for item in bubble_sort(array, direction))}")
 
 
 if __name__ == "__main__":
